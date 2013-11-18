@@ -8,7 +8,7 @@
 	</parent>
 	<groupId>com.java-adventures.security</groupId>
 	<artifactId>securepassword-hash</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>Secure Password Hash</name>
 	<url>http://java-adventures.com</url>
