@@ -8,7 +8,7 @@ Simply create a new instance of ``com.ja.security.PasswordHash``. The default co
 
 ```java
 @Test
-public void testValidateCorrectPassword() throws NoSuchAlgorithmException, InvalidKeySpecException {
+public void testValidateCorrectPassword() throws Exception {
 	String password = "My Test Password$";
 	String correctHash = new PasswordHash().createHash(password);
 	assertTrue(new PasswordHash().validatePassword(password, correctHash));
