@@ -185,11 +185,19 @@ public class PasswordHash {
 		this.pbkdf2Algorithm = pbkdf2Algorithm;
 	}
 
+	public String getPbkdf2Algorithm() {
+		return pbkdf2Algorithm;
+	}
+
 	/**
 	 * Can be changed without breaking existing hashes.
 	 */
 	public void setSecureRandomAlgorithm(String secureRandomAlgorithm) {
 		this.secureRandomAlgorithm = secureRandomAlgorithm;
+	}
+
+	public String getSecureRandomAlgorithm() {
+		return secureRandomAlgorithm;
 	}
 
 	/**
@@ -199,11 +207,19 @@ public class PasswordHash {
 		this.saltByteSize = saltByteSize;
 	}
 
+	public int getSaltByteSize() {
+		return saltByteSize;
+	}
+
 	/**
 	 * Can be changed without breaking existing hashes.
 	 */
 	public void setHashByteSize(int hashByteSize) {
 		this.hashByteSize = hashByteSize;
+	}
+
+	public int getHashByteSize() {
+		return hashByteSize;
 	}
 
 	/**
@@ -223,13 +239,17 @@ public class PasswordHash {
 		this.pbkdf2Iterations = pbkdf2Iterations;
 	}
 
+	public int getPbkdf2Iterations() {
+		return pbkdf2Iterations;
+	}
+
 	public void configure(Properties props) {
 		if (props.getProperty(PARAM_HASH_BYTE_SIZE) != null) {
 			setHashByteSize(Integer.parseInt(props
 					.getProperty(PARAM_HASH_BYTE_SIZE)));
 		}
 		if (props.getProperty(PARAM_SALT_BYTE_SIZE) != null) {
-			setHashByteSize(Integer.parseInt(props
+			setSaltByteSize(Integer.parseInt(props
 					.getProperty(PARAM_SALT_BYTE_SIZE)));
 		}
 		if (props.getProperty(PARAM_PBKDF2_ALGORITHM) != null) {

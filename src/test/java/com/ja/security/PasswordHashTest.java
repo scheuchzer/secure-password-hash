@@ -21,6 +21,7 @@ import static org.junit.Assert.*;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.HashSet;
+import java.util.Properties;
 import java.util.Set;
 
 import org.junit.Test;
@@ -86,5 +87,22 @@ public class PasswordHashTest {
 		String correctHash = new PasswordHash().createHash(password);
 		assertFalse(new PasswordHash().validatePassword("My+Test Password$",
 				correctHash));
+	}
+
+	@Test
+	public void testConfigure() {
+		Properties props = new Properties();
+		props.setProperty(PasswordHash.PARAM_HASH_BYTE_SIZE, "24");
+		props.setProperty(PasswordHash.PARAM_PBKDF2_ALGORITHM, "foo");
+		props.setProperty(PasswordHash.PARAM_PBKDF2_ITERATIONS, "1000");
+		props.setProperty(PasswordHash.PARAM_SALT_BYTE_SIZE, "32");
+		props.setProperty(PasswordHash.PARAM_SECURE_RANDOM_ALGORITHM, "bar");
+		PasswordHash ph = new PasswordHash();
+		ph.configure(props);
+		assertThat(ph.getHashByteSize(), is(24));
+		assertThat(ph.getPbkdf2Algorithm(), is("foo"));
+		assertThat(ph.getPbkdf2Iterations(), is(1000));
+		assertThat(ph.getSaltByteSize(), is(32));
+		assertThat(ph.getSecureRandomAlgorithm(), is("bar"));
 	}
 }
