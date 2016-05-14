@@ -1,10 +1,5 @@
-*.class
-
-# Package Files #
-*.jar
-*.war
-*.ear
-/target
+pom.xml.versionsBackup
+target/
+.settings/
 .classpath
 .project
-.settings
