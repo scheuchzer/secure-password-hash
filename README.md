@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/scheuchzer/secure-password-hash.svg?branch=master)](https://travis-ci.org/scheuchzer/secure-password-hash)
+
 # secure-password-hash
 
 Password Hash Class whith salt and PBKDF2WithHmacSHA1 enabled by default.
